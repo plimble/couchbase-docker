@@ -31,3 +31,7 @@ RUN sed -i -e 's/\/opt\/couchbase:\/sbin\/nologin/\/opt\/couchbase:\/bin\/sh/' /
 
 # Add start script
 ADD scripts/couchbase-start /usr/local/bin/
+
+RUN chmod a+x /usr/local/bin/couchbase-start
+
+CMD ["couchbase-start"]

@@ -1,4 +1,5 @@
 FROM debian:stable
+MAINTAINER Amin Jams <aminjam@outlook.com>
 
 ################## BEGIN INSTALLATION ######################
 RUN export DEBIAN_FRONTEND=noninteractive && \
@@ -6,9 +7,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   apt-get update && \
   apt-get -y upgrade && \
   apt-get -y install wget libssl1.0.0 python && \
-  wget -q http://packages.couchbase.com/releases/3.0.3/couchbase-server-enterprise_3.0.3-debian7_amd64.deb couchbase-server-enterprise_3.0.3-debian7_amd64.deb -O couchbase-server-enterprise.deb && \
-  dpkg -i couchbase-server-enterprise.deb && \
-  rm couchbase-server-enterprise.deb
+  wget -q http://packages.couchbase.com/releases/3.0.1/couchbase-server-community_3.0.1-debian7_amd64.deb -O couchbase-server-community.deb && \
+  dpkg -i couchbase-server-community.deb && \
+  rm couchbase-server-community.deb
 
 # Add configurations
 ENV PATH /opt/couchbase/bin:/opt/couchbase/bin/tools:$PATH
